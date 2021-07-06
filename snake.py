@@ -53,3 +53,10 @@ class Snake:
     def right(self):
         if self.head_snake.heading() != LEFT:  # ensure it can't go backwards on itself
             self.head_snake.setheading(RIGHT)
+
+    def reset_snake(self):
+        for bit in self.snake_bits:
+            bit.goto(1500, 1500)
+        self.snake_bits.clear()
+        self.create_snake()
+        self.head_snake = self.snake_bits[0]
